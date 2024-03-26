@@ -6,7 +6,7 @@ docker build -t nodeapp:build -f build.Dockerfile .
 
 docker create --name buildContainer nodeapp:build
 
-cp buildContainer:/src/dist ./distrib
+docker cp buildContainer:/src/dist ./distrib
 
 docker rm -f buildContainer
 
