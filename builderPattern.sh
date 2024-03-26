@@ -14,4 +14,4 @@ echo deploying node:deploy
 
 docker build -t nodeapp:deploy -f deploy.Dockerfile .
 
-docker run --name deployContainer nodeapp:deploy -p 3000:3000
+docker run --name deployContainer --net=host -p 3000:3000 nodeapp:deploy -d

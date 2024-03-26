@@ -1,7 +1,7 @@
 #For base
 FROM node:21.0 AS base
 WORKDIR /usr/src
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
 
 #For linter
@@ -17,7 +17,7 @@ RUN npm run build
 #For deployment
 FROM node:21-alpine3.19
 WORKDIR /opt
-COPY package*.json .
+COPY package*.json ./
 RUN npm install --only=production
 COPY --from=builder /usr/src/dist ./
 EXPOSE 3000
