@@ -1,6 +1,6 @@
 FROM node:21.0
 WORKDIR /src
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
-COPY . .
+COPY . ./
 RUN npm run lint && npm run build
