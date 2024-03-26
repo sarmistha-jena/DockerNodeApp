@@ -3,6 +3,7 @@ FROM node:21.0 AS base
 WORKDIR /usr/src
 COPY package*.json ./
 RUN npm install
+COPY . .
 
 #For linter
 FROM base AS linter
